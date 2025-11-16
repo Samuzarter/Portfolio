@@ -51,6 +51,7 @@ export default function Hero() {
         <a href="https://linkedin.com/samuel-quiroz-rincon" className="hover:text-teal-400 transition">
           <i className="fa-brands fa-linkedin"></i>
         </a>
+        <p>samuelquirozrincon1@gmail.com</p>
       </motion.div>
 
     </section>
