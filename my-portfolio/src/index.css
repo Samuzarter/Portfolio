@@ -20,9 +20,19 @@ html {
   scroll-behavior: smooth;
 }
 
-body {
-  @apply bg-dark text-lightgray antialiased;
+@keyframes gridMove {
+  from { background-position: 0 0, 0 0; }
+  to { background-position: 40px 40px, 40px 40px; }
 }
+
+body {
+  animation: gridMove 30s linear infinite;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
 
 /* Helpers */
 .section {

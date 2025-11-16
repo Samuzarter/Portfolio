@@ -1,12 +1,37 @@
 export const siteMeta = {
   name: 'Samuel Quiroz Rincón',
-  role: 'Desarrollador Back-End',
-  intro: 'Desarrollo APIs con conexión a base de datos e implementeación con AWS en Python, C# y Java',
+  role: 'Tecnólogo en Desarrollo de Software',
+  intro: 'Desarrollador Back-End especializado en la creación de sistemas robustos, APIs escalables y soluciones eficientes en la nube. Con experiencia trabajando con Python, C#, .NET, SQL y AWS.',
 }
 
-export const skills = [
-  'React', 'JavaScript (ES6+)', 'TypeScript (opcional)', 'TailwindCSS', 'Vite', 'Framer Motion', 'HTML', 'CSS'
-]
+export const skills = {
+  Lenguajes: [
+    "Python",
+    "C#",
+    "Java",
+    "SQL",
+    "JavaScript",
+  ],
+  backend: [
+    ".NET / ASP.NET",
+    "APIs REST y no REST",
+    "SQL Server",
+  ],
+  tools: [
+    "Git",
+    "GitHub",
+    "Postman",
+    "AWS",
+    "Docker"
+  ],
+  soft: [
+    "Liderazgo técnico",
+    "Organización de proyectos",
+    "Comunicación efectiva (Inglés C1)",
+    "Resolución de problemas",
+    "Colaboración y trabajo en equipo"
+  ]
+};
 
 export const projects = [
   {
@@ -26,9 +51,9 @@ export const projects = [
 export const experience = [
   {
     id: 'e1',
-    role: 'Frontend Developer',
-    company: 'Empresa X',
-    period: '2022 - Presente',
-    details: 'Trabajo en interfaces, componentes y performance.'
+    role: 'Software Engineering Intern',
+    company: 'Team International',
+    period: '02/2025 - 08/2025',
+    details: 'Optimización de dependencias y mejora de procesos, soporte a aplicaciones y desarrollo backend en Python y AWS.'
   }
 ]
