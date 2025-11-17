@@ -19,7 +19,6 @@ export default function App() {
         <Skills />
         <Projects />
         <Experience />
-        <Contact />
       </main>
 
       <Footer />

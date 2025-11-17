@@ -1,6 +1,12 @@
 import React from "react";
 import { siteMeta } from "../data";
 
+const Highlight = ({ children }) => (
+  <span className="text-[#64ffda] font-semibold">
+    {children}
+  </span>
+);
+
 export default function About() {
   return (
     <section
@@ -26,10 +32,25 @@ export default function About() {
         </p>
 
         {/* Descripción */}
-        <p className="text-gray-300 leading-relaxed text-lg">
-          Soy un Desarrollador Back-End con experiencia en la construcción de arquitecturas sólidas y servicios escalables, combinando un enfoque orientado a la calidad con la implementación de buenas prácticas de desarrollo. Durante mi trayectoria he trabajado con tecnologías como Python, C#, .NET, SQL y AWS, desarrollando APIs REST y no REST integradas con bases de datos, autenticación segura mediante JWT, y despliegues optimizados mediante pipelines CI/CD.
-          <br /><br />
-          Me interesa profundamente el diseño de sistemas robustos, la creación de APIs eficientes, la automatización de procesos y la implementación de soluciones modernas en la nube. Últimamente he ampliado mis conocimientos hacia el testing automatizado y prácticas de QA, con especial interés en herramientas y servicios que ofrece AWS para mejorar el aseguramiento de calidad. Además, cuento con un nivel de inglés C1, lo que me permite documentar, comunicar y colaborar eficazmente con equipos técnicos internacionales.
+        <p className="text-gray-300 leading-relaxed text-lg text-left">
+          Soy un <Highlight>Desarrollador Back-End</Highlight> con experiencia en la creación de 
+          <Highlight> arquitecturas sólidas</Highlight> y 
+          <Highlight> servicios escalables</Highlight> utilizando 
+          <Highlight> Python</Highlight>, <Highlight>C#</Highlight>, <Highlight>.NET</Highlight>, <Highlight>SQL</Highlight> y 
+          <Highlight> AWS</Highlight>. He desarrollado 
+          <Highlight> APIs REST</Highlight> y <Highlight>no REST</Highlight> con autenticación mediante 
+          <Highlight> JWT</Highlight> e integración a bases de datos, además de implementar 
+          <Highlight> pipelines CI/CD</Highlight> para despliegues eficientes. 
+
+          Me apasiona el <Highlight>diseño de sistemas</Highlight>, la 
+          <Highlight> automatización de procesos</Highlight> y el 
+          <Highlight> desarrollo de soluciones en la nube</Highlight>. Actualmente profundizo en 
+          <Highlight> testing automatizado</Highlight> y prácticas de 
+          <Highlight> QA</Highlight> apoyándome en herramientas de 
+          <Highlight> AWS</Highlight>. 
+
+          Cuento con un nivel de <Highlight>inglés C1</Highlight>, lo que me permite comunicarme y 
+          colaborar de manera efectiva en entornos técnicos.
         </p>
       </div>
     </section>

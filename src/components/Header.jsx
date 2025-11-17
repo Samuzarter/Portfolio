@@ -50,7 +50,7 @@ export default function Header() {
           <a href="#skills" className="hover:text-teal-300 transition">Skills</a>
           <a href="#projects" className="hover:text-teal-300 transition">Proyectos</a>
           <a href="#experience" className="hover:text-teal-300 transition">Experiencia</a>
-          <a href="#contact" className="hover:text-teal-300 transition">Contacto</a>
+          <a href="#hero" className="hover:text-teal-300 transition">Contacto</a>
         </nav>
       </div>
     </header>

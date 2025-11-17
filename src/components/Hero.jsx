@@ -42,17 +42,38 @@ export default function Hero() {
 
       <motion.div
         style={{ opacity, y: translateY }}
-        className="flex gap-6 text-2xl mt-6"
+        className="flex items-center gap-6 text-2xl mt-6"
       >
-        <a href="https://github.com/Samuzarter" className="hover:text-teal-400 transition">
+        {/* GitHub */}
+        <a
+          href="https://github.com/Samuzarter"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="hover:text-teal-400 transition transform hover:scale-110"
+        >
           <i className="fa-brands fa-github"></i>
         </a>
 
-        <a href="https://linkedin.com/samuel-quiroz-rincon" className="hover:text-teal-400 transition">
+        {/* LinkedIn */}
+        <a
+          href="https://www.linkedin.com/in/samuel-quiroz-rinc%C3%B3n/"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="hover:text-teal-400 transition transform hover:scale-110"
+        >
           <i className="fa-brands fa-linkedin"></i>
         </a>
-        <p>samuelquirozrincon1@gmail.com</p>
+
+        {/* Correo */}
+        <div
+          onClick={() => window.location.href = "mailto:samuelquirozrincon1@gmail.com"}
+          className="text-lg text-gray-300 hover:text-teal-400 transition border border-gray-600 px-3 py-1 rounded-xl
+                    hover:border-teal-400 hover:shadow-lg hover:shadow-teal-400/20 cursor-pointer select-text"
+        >
+          samuelquirozrincon1@gmail.com
+        </div>
       </motion.div>
+
 
     </section>
   )
