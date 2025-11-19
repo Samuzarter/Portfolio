@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import { siteMeta } from "../data";
 import avatar from "../assets/avatar.jpg";
 
@@ -12,7 +12,6 @@ export default function Header() {
   useEffect(() => {
     const onScroll = () => {
       setScrolled(window.scrollY > 120);
-
       if (window.scrollY > 20) setOpen(false);
     };
 
@@ -21,30 +20,24 @@ export default function Header() {
   }, []);
 
   return (
-    <header className="fixed top-4 left-1/2 -translate-x-1/2 w-[94%] sm:w-[90%] md:w-[85%] z-50">
-
-      {/* NAV */}
+    <header className="fixed top-2 left-0 w-full z-50">
       <nav
         className={`
+          w-full max-w-[800px] mx-auto
           flex items-center justify-between
           px-5 py-4 rounded-2xl shadow-xl transition-all duration-300
-          ${
-            scrolled
-              ? "backdrop-blur-xl bg-[#033b3c]/40 border border-white/10"
-              : "backdrop-blur-lg bg-[#033b3c]/10 border border-white/5"
+          z-50
+          ${scrolled
+            ? "backdrop-blur-xl bg-[#033b3c]/40 border border-white/10"
+            : "backdrop-blur-lg bg-[#033b3c]/10 border border-white/5"
           }
         `}
       >
-
-        {/* MINI AVATAR ANIMADO (restaurado) */}
+        {/* AVATAR ANIMADO */}
         <motion.div
-          initial={{ opacity: 0, scale: 0.5 }}
-          animate={
-            scrolled
-              ? { opacity: 1, scale: 1 }
-              : { opacity: 0, scale: 0.5 }
-          }
-          transition={{ duration: 0.4 }}
+          initial={{ opacity: 0, y: -8 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.35 }}
           className="flex items-center gap-3"
         >
           <img
@@ -64,38 +57,57 @@ export default function Header() {
           <li><a href="#skills" className="hover:text-teal-300 transition">Skills</a></li>
           <li><a href="#projects" className="hover:text-teal-300 transition">Proyectos</a></li>
           <li><a href="#experience" className="hover:text-teal-300 transition">Experiencia</a></li>
-          <li><a href="#hero" className="hover:text-teal-300 transition">Contacto</a></li>
+          <li><a href="#contact" className="hover:text-teal-300 transition">Contacto</a></li>
         </ul>
+        
+        {/* NOMBRE SOLO EN MOBILE */}
+        <span className="text-gray-100 font-medium text-lg md:hidden absolute left-1/2 -translate-x-1/2 pointer-events-none">
+          {siteMeta.name}
+        </span>
 
-        {/* BOTÓN MOBILE */}
+        {/* ICONO HAMBURGUESA ANIMADO */}
         <button
           onClick={toggleMenu}
-          className="md:hidden text-teal-300 text-3xl select-none"
+          className="relative z-50 md:hidden text-teal-300 w-8 h-8 flex items-center justify-center overflow-hidden"
         >
-          {open ? "✕" : "☰"}
+          <motion.span
+            key={open ? "close" : "open"}
+            initial={{ opacity: 0, rotate: open ? -90 : 90 }}
+            animate={{ opacity: 1, rotate: 0 }}
+            transition={{ duration: 0.25 }}
+          >
+            {open ? "✕" : "☰"}
+          </motion.span>
         </button>
       </nav>
 
-      {/* MENÚ MOBILE */}
-      {open && (
-        <motion.ul
-          initial={{ opacity: 0, y: -20 }}
-          animate={{ opacity: 1, y: 0 }}
-          exit={{ opacity: 0, y: -20 }}
-          className="
-            md:hidden flex flex-col gap-4 mt-2 px-6 py-4
-            bg-[#022c2d]/95 backdrop-blur-xl rounded-2xl shadow-lg
-            text-gray-200
-          "
-        >
-          <li><a href="#hero" onClick={toggleMenu} className="hover:text-teal-300 transition">Inicio</a></li>
-          <li><a href="#about" onClick={toggleMenu} className="hover:text-teal-300 transition">Sobre mí</a></li>
-          <li><a href="#skills" onClick={toggleMenu} className="hover:text-teal-300 transition">Skills</a></li>
-          <li><a href="#projects" onClick={toggleMenu} className="hover:text-teal-300 transition">Proyectos</a></li>
-          <li><a href="#experience" onClick={toggleMenu} className="hover:text-teal-300 transition">Experiencia</a></li>
-          <li><a href="#hero" onClick={toggleMenu} className="hover:text-teal-300 transition">Contacto</a></li>
-        </motion.ul>
-      )}
+      {/* MENÚ MOBILE - FIX ABSOLUTE OVERLAY */}
+      <AnimatePresence>
+        {open && (
+          <motion.ul
+            initial={{ opacity: 0, y: -8 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -8 }}
+            transition={{ duration: 0.25 }}
+            className="
+              md:hidden flex flex-col gap-4
+              absolute left-0 right-0
+              top-full mt-3
+              mx-auto w-[92%] max-w-[800px]
+              px-6 py-5 rounded-2xl
+              bg-[#022c2d]/95 backdrop-blur-xl shadow-xl
+              text-gray-200 z-40
+            "
+          >
+            <li><a href="#hero" onClick={toggleMenu} className="hover:text-teal-300 transition">Inicio</a></li>
+            <li><a href="#about" onClick={toggleMenu} className="hover:text-teal-300 transition">Sobre mí</a></li>
+            <li><a href="#skills" onClick={toggleMenu} className="hover:text-teal-300 transition">Skills</a></li>
+            <li><a href="#projects" onClick={toggleMenu} className="hover:text-teal-300 transition">Proyectos</a></li>
+            <li><a href="#experience" onClick={toggleMenu} className="hover:text-teal-300 transition">Experiencia</a></li>
+            <li><a href="#contact" onClick={toggleMenu} className="hover:text-teal-300 transition">Contacto</a></li>
+          </motion.ul>
+        )}
+      </AnimatePresence>
     </header>
   );
 }

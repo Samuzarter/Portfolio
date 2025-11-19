@@ -11,7 +11,7 @@ export default function About() {
   return (
     <section
       id="about"
-      className="min-h-screen flex flex-col justify-center items-center text-white px-6 pt-24"
+      className="min-h-screen flex flex-col justify-center items-center text-white px-4 md:px-6 pt-24"
     >
       {/* Título */}
       <h2 className="text-4xl font-bold mb-10 text-teal-400">
@@ -41,7 +41,7 @@ export default function About() {
         </p>
 
         {/* Descripción */}
-        <p className="text-gray-300 leading-relaxed text-lg text-left space-y-4">
+        <p className="text-gray-300 leading-relaxed text-lg text-left">
           Soy un Desarrollador Back-End especializado en arquitecturas sólidas y servicios altamente escalables con
           Python, C#, .NET, SQL y AWS. Tengo Experiencia en el desarrollo de APIs REST/no REST (incluyendo JWT)
           y la implementación de pipelines CI/CD. Me enfoco en el diseño de sistemas, la automatización 

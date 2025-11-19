@@ -17,6 +17,7 @@ export default function Hero() {
         flex flex-col items-center justify-center 
         text-center relative 
         px-6 pt-20 md:pt-24
+        overflow-hidden
       "
     >
       {/* Avatar */}
@@ -24,7 +25,11 @@ export default function Hero() {
         src={avatar}
         alt="avatar"
         style={{ opacity, scale, y: translateY }}
-        className="w-36 h-36 md:w-44 md:h-44 rounded-full border-4 border-teal-400 shadow-2xl"
+        className="
+          w-36 h-36 md:w-44 md:h-44 
+          rounded-full border-4 border-teal-400 
+          shadow-xl   /* ← corregido */
+        "
       />
 
       {/* Nombre */}
@@ -54,7 +59,11 @@ export default function Hero() {
       {/* Links */}
       <motion.div
         style={{ opacity, y: translateY }}
-        className="flex flex-wrap justify-center items-center gap-6 text-2xl mt-8"
+        className="
+          flex flex-wrap justify-center items-center 
+          gap-4 md:gap-6   /* ← corregido */
+          text-2xl mt-8
+        "
       >
         {/* GitHub */}
         <a
@@ -84,7 +93,9 @@ export default function Hero() {
             hover:text-teal-400 transition 
             border border-gray-600 px-3 py-1 rounded-xl
             hover:border-teal-400 hover:shadow-lg hover:shadow-teal-400/20
-            cursor-pointer select-text
+            cursor-pointer select-text 
+            break-words   /* ← corregido */
+            max-w-[90%]   /* ← evita overflow adicional */
           "
         >
           samuelquirozrincon1@gmail.com
